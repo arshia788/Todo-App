@@ -1,0 +1,13 @@
+
+# Block all crawlers for /accounts
+# vaghti migeh user-agent yani moter hay jostejo va chon * hast yani hame jostejo ha
+
+User-agent: *
+
+# in ro ejazeh dareh
+Allow: /
+
+#in ro ejazeh nadareh 
+Disallow: /dashboard
+
+Sitemap: https://botostart.ir/sitemap.xml
