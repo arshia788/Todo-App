@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router';
-import sigIn from 'next-auth/react'
+import {signIn} from 'next-auth/react'
 
 function SignInPage() {
 
@@ -10,11 +10,12 @@ function SignInPage() {
     const router = useRouter();
 
     const signInHandler = async () => {
-        signin('credentials', {
-            email, password
-        })
+        const res= await signIn('credentials', {
+            email, password, redirect:false
+        });
+        console.log(res);
+        if(!res.error) return router.push('/')
 
-        if (data.status === 'success') return router.replace('/signin')
     }
 
     return (
