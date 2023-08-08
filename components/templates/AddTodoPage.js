@@ -58,9 +58,11 @@ function AddTodoPage() {
                         value="done" title="Done" c='3'>
                         <MdDoneAll />
                     </RadioButton>
-
                 </div>
 
+                <button
+                className='rounded px-2 text-gray-700 mt-4 bg-gray-400'
+                >Add</button>
             </div>
 
         </div>
