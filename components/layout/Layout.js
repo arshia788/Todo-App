@@ -37,7 +37,7 @@ function Layout({children}) {
                 </ul>
             </aside>
 
-            <section className="w-10/12  bg-zinc-100">
+            <section className="w-10/12  bg-zinc-300">
                 {children}
             </section>
 
