@@ -26,20 +26,19 @@ function Layout({children}) {
                     
                     <li className=" gap-x-2 flex items-center text-gray-500 ">
                         <BiMessageSquareAdd />
-                        <Link href="/">Add Todo</Link>
+                        <Link href="/add-todo">Add Todo</Link>
                     </li>
 
                     
                     <li className="gap-x-2 flex items-center text-gray-500">
                         <RxDashboard />
-                        <Link href="/">Profile</Link>
+                        <Link href="/profile">Profile</Link>
                     </li>
                 </ul>
             </aside>
 
-            <section className="w-10/12  bg-zinc-300 ">
+            <section className="w-10/12  bg-zinc-100">
                 {children}
-                awdkawlad
             </section>
 
         </div>
