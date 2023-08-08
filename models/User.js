@@ -17,10 +17,15 @@ const userSchema= new Schema({
         type:String
     }
     ,
+    todos:[
+        // khodet dari migi ke har todo ham title dareh ham status 
+        // status yani to kodom vazait hast. 
+        {title:String, status:String}
+    ],
     createdAt:{
         type:Date,
         default:()=> Date.now(),
-        immutalbe:true,
+        immutable:true,
     }
     
 });
