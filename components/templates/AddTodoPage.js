@@ -8,12 +8,32 @@ import { FiSettings } from 'react-icons/fi';
 import { AiOutlineFileSearch } from 'react-icons/ai';
 import { MdDoneAll } from 'react-icons/md';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function AddTodoPage() {
 
     const [title, setTitle] = useState('');
-
     const [status, setStatus] = useState('todo')
 
+
+    const addHandler=async()=>{
+        const res= await fetch('/api/todos',{
+            method:"POST",
+            body:JSON.stringify({title, status}),
+            headers:{"Content-Type":"application/json"}
+        })
+        const data= await res.json()
+        console.log(data);
+        if(data.status==='success'){
+            setTitle('')
+
+            // bordi be halat default.
+            setStatus('todo');
+            toast.success("Todo Added")
+
+        }
+    }
 
     return (
         <div className='p-2'>
@@ -61,9 +81,12 @@ function AddTodoPage() {
                 </div>
 
                 <button
+                onClick={addHandler}
                 className='rounded px-2 text-gray-700 mt-4 bg-gray-400'
                 >Add</button>
             </div>
+            
+            <ToastContainer />
 
         </div>
     )

@@ -12,8 +12,6 @@ export default async function handler(req,res){
             res.status(500).json({status:'failed', message:"failed to connect to DB"})
         }
 
-        // inja to miay token on karbar ro check mikoni.
-        // chon serverside hasti omadi ba getSession on ro begiri. 
 
         const session= await getSession({req});
 
