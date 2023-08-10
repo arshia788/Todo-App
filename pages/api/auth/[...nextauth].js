@@ -6,7 +6,6 @@ import connectDB from '@/utils/connectDB';
 import { verifyPassword } from '@/utils/auth';
 
 
-// ? mesle fasle ghabl chiz khasi nist. 
 
 const authOptions={
   session:{strategy:'jwt'},

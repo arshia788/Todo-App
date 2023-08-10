@@ -1,6 +1,7 @@
 import connectDB from "@/utils/connectDB";
 import User from "@/models/User";
 import {getSession} from 'next-auth/react'
+import { sortTodos } from "@/utils/sortTodos";
 
 export default async function handler(req,res){
 
@@ -14,6 +15,7 @@ export default async function handler(req,res){
 
 
         const session= await getSession({req});
+        console.log(session);
 
         if(!session){
             return res.status(401).json({status:'failed', message:"You are not Logged in."})
@@ -39,7 +41,21 @@ export default async function handler(req,res){
             res.status(201).json({status:'success', message:"Todo created!. "})
         }
 
-    }else if(req.method === "GET"){
+    }
+    
+    else if(req.method === "GET"){
+        try {
+            await connectDB()
+        } catch (error) {
+            res.status(500).json({status:'failed', message:"failed to connect to DB"})
+        }
+
+        const session= await getSession({req});
+        const user= await User.findOne({email:session.user.email})
+        const sortedData= sortTodos(user.todos);
+        
+
+        res.status(200).json({status:'success', data:{todos:sortedData}})
 
     }
 };
