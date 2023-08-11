@@ -10,15 +10,21 @@ function ProfilePage() {
 
 
 
-    const submitHandler=(e)=>{
-
+    const submitHandler= async()=>{  
+        const res= await fetch('/api/profile',{
+            method:"POST",
+            body:JSON.stringify({name, lastName, password}),
+            headers:{"Content-Type":'application/json'}
+        });
+        const data= await res.json()
+        console.log(data);
     }
 
     return (
         <div className='p-3'>
 
-            <h2>
-                <CgProfile />
+            <h2 className='flex items-center'>
+                <CgProfile className='mt-2 mr-1'/>
                 profile
             </h2>
 

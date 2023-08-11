@@ -40,4 +40,27 @@ export default async function handler(req,res){
 
         res.status(200).json({status:'success', data:{name, lastName:lastName, email:session.user.email}})
     }
+
+    else if(req.method ==="GET"){
+        try {
+            await connectDB()
+        } catch (error) {
+            return res.status(500).json({status:'failed', message:"Failed to connect to DB"})
+        }
+
+        const session= await getSession({req});
+
+        if(!session){
+            return res.status(401).json({status:'failed', message:"You are not Logged in"})
+        }
+
+        const user= await User.findOne({email:session.user.email})
+
+        if(!user){
+            return res.status(400).json({status:'failed', message:"User doesn't exists"})
+        }
+
+        res.status(200).json({status:'success', data:{name:user.name, lastName:user.lastName, email:session.user.email}})
+
+    }
 }
