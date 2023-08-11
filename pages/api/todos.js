@@ -44,6 +44,7 @@ export default async function handler(req,res){
     }
     
     else if(req.method === "GET"){
+
         try {
             await connectDB()
         } catch (error) {
@@ -53,6 +54,7 @@ export default async function handler(req,res){
         const session= await getSession({req});
         const user= await User.findOne({email:session.user.email})
         const sortedData= sortTodos(user.todos);
+        
         res.status(200).json({status:'success', data:{todos:sortedData}})
     }
 
