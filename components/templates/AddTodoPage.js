@@ -14,24 +14,24 @@ import 'react-toastify/dist/ReactToastify.css';
 function AddTodoPage() {
 
     const [title, setTitle] = useState('');
-    const [status, setStatus] = useState('todo')
+    const [status, setStatus] = useState('todo');
+    const [info, setInfo]= useState('');
 
 
     const addHandler=async()=>{
         const res= await fetch('/api/todos',{
             method:"POST",
-            body:JSON.stringify({title, status}),
+            body:JSON.stringify({title, status, info}),
             headers:{"Content-Type":"application/json"}
         })
         const data= await res.json()
-        console.log(data);
         if(data.status==='success'){
             setTitle('')
+            setInfo('')
             setStatus('todo');
             toast.success("Todo Added")
         }
 
-        
     }
 
     return (
@@ -49,6 +49,15 @@ function AddTodoPage() {
                         className='rounded p-1 outline-none w-80' id='title'
                         onChange={e => setTitle(e.target.value)}
                         value={title} placeholder='Title...' />
+                    
+                    <textarea 
+                    className='mt-4 rounded p-1 outline-none border-none'
+                    placeholder='Write your thoughts '
+                    rows="7" cols="35"
+                    value={info} onChange={e=> setInfo(e.target.value)}
+                    >
+
+                    </textarea>
                 </div>
 
                 <div className='flex flex-col gap-y-4 

@@ -28,14 +28,14 @@ export default async function handler(req,res){
         }
 
         if(req.method === "POST"){
-            const {title, status}= req.body;
+            const {title, status, info}= req.body;
 
-            if(!title || !status){
+            if(!title || !status || !info){
                 return res.status(422).json({status:"failed", message:"Invalid data"})
             }
 
 
-            user.todos.push({title, status})
+            user.todos.push({title, status, info})
             user.save();
 
             res.status(201).json({status:'success', message:"Todo created!. "})
