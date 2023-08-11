@@ -4,6 +4,26 @@ import {BiRightArrow, BiLeftArrow} from 'react-icons/bi';
 
 function Tasks({ data, next, back, fetchTodos }) {
 
+  console.log(data);
+
+
+
+  const changeStatus=async(id,status)=>{
+
+    const res= await fetch('/api/todos',{
+      method:"PATCH",
+
+      // dalil in ke dareh taghir mikoneh in hast ke miad status ro mifresteh. 
+      // ? hala in status ya next hast ya back.
+      
+      // * in next, back ro to be onvan props az HomePage gerfti ke onja moskhash kardreh koja bereh. 
+      
+      body:JSON.stringify({id,status}),
+      headers:{"Content-Type":'application/json'}
+    })
+    const data= await res.json()
+    if(data.status === 'success') fetchTodos()
+  }
 
   return (
     <div className=' mb-2'>
@@ -19,13 +39,18 @@ function Tasks({ data, next, back, fetchTodos }) {
 
           <div className='flex justify-between items-center'>
 
-            {/* dari handler mikoni in dokmeh ha ro  */}
               {
-                back ? <button className='bg-yellow-300 rounded px-2 flex items-center'> <BiLeftArrow /> Back</button>:null
+                back ? <button 
+                onClick={()=>changeStatus(item._id, back)}
+                className='bg-yellow-300 rounded px-2 flex items-center'> <BiLeftArrow /> Back</button>:null
               }
 
               {
-                next ? <button className='bg-green-400 text-white rounded px-2 flex items-center'><BiRightArrow /> Next</button>:null
+                next ? <button
+
+                // 2vomi on status hast ke mikhay taghir bedi 
+                onClick={()=>changeStatus(item._id, next)}
+                className='bg-green-400 text-white rounded px-2 flex items-center'><BiRightArrow /> Next</button>:null
               }
 
           </div>

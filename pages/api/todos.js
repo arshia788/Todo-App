@@ -69,18 +69,11 @@ export default async function handler(req,res){
         if(!id || !status){
             return res.status(422).json({status:'failed', message:"Invalid data!"})
         }
+
         
-
-        // alan mikhy on User ro yeki az object hash ro update bokoni pas miay be in halat on todos ro migiri ba on id ke dareh.
-
-
-        // hala ke omadi in ro gerefti vaght update kardan status hast.
-        // ? ba $set migi chi kar mikhay bokoni. chi set beshe -- che megdari-- dar koja. 
-        // ? omadi gofti in todos.$.status yani hamini ke alan peda kardi 
 
         const result= await User.updateOne({"todos._id":id}, {$set:{"todos.$.status":status}});
 
-        console.log(result);
 
         res.status(200).json({status:'success'})
     }
