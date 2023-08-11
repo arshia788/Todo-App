@@ -27,12 +27,11 @@ function AddTodoPage() {
         console.log(data);
         if(data.status==='success'){
             setTitle('')
-
-            // bordi be halat default.
             setStatus('todo');
             toast.success("Todo Added")
-
         }
+
+        
     }
 
     return (
