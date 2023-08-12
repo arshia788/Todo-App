@@ -27,8 +27,9 @@ export default async function handler(req,res){
             return res.status(404).json({status:'failed', messsage:"No user exists."})
         }
 
-        if(req.method === "POST"){
+            
             const {title, status, info}= req.body;
+            console.log(info);
 
             if(!title || !status || !info){
                 return res.status(422).json({status:"failed", message:"Invalid data"})
@@ -39,7 +40,6 @@ export default async function handler(req,res){
             user.save();
 
             res.status(201).json({status:'success', message:"Todo created!. "})
-        }
 
     }
     
@@ -52,9 +52,11 @@ export default async function handler(req,res){
         }
 
         const session= await getSession({req});
+
+
         const user= await User.findOne({email:session.user.email})
         const sortedData= sortTodos(user.todos);
-        
+
         res.status(200).json({status:'success', data:{todos:sortedData}})
     }
 

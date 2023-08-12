@@ -16,7 +16,7 @@ function AddTodoPage() {
     const [title, setTitle] = useState('');
     const [status, setStatus] = useState('todo');
     const [info, setInfo]= useState('');
-
+    
 
     const addHandler=async()=>{
         const res= await fetch('/api/todos',{
@@ -86,6 +86,7 @@ function AddTodoPage() {
                         value="done" title="Done" c='3'>
                         <MdDoneAll />
                     </RadioButton>
+                    
                 </div>
 
                 <button

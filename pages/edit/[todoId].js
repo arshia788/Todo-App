@@ -1,28 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import {useRouter} from 'next/router'
+import TodoEditPage from 'components/templates/TodoEditPage';
+import { useRouter } from 'next/dist/client/router';
 
-function TodoId() {
+function TodoEdit() {
 
-    const [data, setData]= useState([]);
-    console.log(data);
-    
-    const router= useRouter();
-    const {query:{todoId}, isReady }= router;
-
-    useEffect(()=>{
-
-        if(isReady){
-        fetch(`/api/edit/${todoId}`)
-        .then(res=> res.json())
-        .then(data=> data&& data.status ==='success' && setData(data.data))  
-        }
-        
-    },[])    
-
-
-  return (
-    <div>TodoId</div>
-  )
+  const router = useRouter().query || '';
+  const {todoId} = router
+  
+  if (todoId) return <TodoEditPage id={todoId}/>
 }
 
-export default TodoId;
+export default TodoEdit
