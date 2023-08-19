@@ -30,7 +30,7 @@ function SignUpPage() {
     return (
         <div >
 
-            <div className='bg-white w-2/12 mx-auto rounded-lg 
+            <div className='bg-white w-64 mx-auto rounded-lg 
              p-5 flex flex-col text-center my-10'>
 
                 <h3 className='text-md mb-3 font-semibold'>Registrantion From</h3>
@@ -42,8 +42,8 @@ function SignUpPage() {
                     className='px-3 w-fit mt-4 mx-auto py-1 rounded bg-zinc-400'
                 >Register</button>
 
-                <div className='flex items-center mt-4'>
-                    <span >Have an account?</span>
+                <div className='flex items-center mt-4 justify-center'>
+                    <span className='mr-1'>Have an account?</span>
                     <Link href="/signin" className='text-blue-600 col-span-2'>sign in</Link>
                 </div>
             </div>

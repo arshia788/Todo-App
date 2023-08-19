@@ -28,7 +28,7 @@ function SignInPage() {
     return (
         <div >
 
-            <div className='bg-white w-2/12 mx-auto rounded-lg 
+            <div className='bg-white w-64 mx-auto rounded-lg 
              p-5 flex flex-col text-center my-10'>
 
                 <h3 className='text-md mb-3 font-semibold'>SignIn</h3>
@@ -42,9 +42,10 @@ function SignInPage() {
                 >LogIn</button>
 
                 <div className='flex items-center mt-4'>
-                    <p>Create An Account</p>
+                    <p className='mr-1'>Create An Account </p>
                     <Link href="/signup" className='text-blue-600'>sign up</Link>
                 </div>
+
             </div>
         </div>
     )
