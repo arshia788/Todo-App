@@ -2,6 +2,7 @@ import { BiSolidHand } from "react-icons/bi";
 import Link from 'next/link';
 import { VscListSelection } from 'react-icons/vsc';
 import { BiMessageSquareAdd } from 'react-icons/bi';
+
 import { RxDashboard } from 'react-icons/rx';
 import {FiLogOut} from 'react-icons/fi'
 
@@ -50,7 +51,7 @@ function Layout({ children }) {
                         </li>
                     </ul>
                 </aside>
-
+                            
                 <section className="w-10/12  bg-zinc-300">
                     {children}
                 </section>

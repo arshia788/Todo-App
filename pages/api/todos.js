@@ -13,9 +13,7 @@ export default async function handler(req,res){
             res.status(500).json({status:'failed', message:"failed to connect to DB"})
         }
 
-
         const session= await getSession({req});
-        console.log(session);
 
         if(!session){
             return res.status(401).json({status:'failed', message:"You are not Logged in."})
@@ -29,7 +27,6 @@ export default async function handler(req,res){
 
             
             const {title, status, info}= req.body;
-            console.log(info);
 
             if(!title || !status || !info){
                 return res.status(422).json({status:"failed", message:"Invalid data"})
@@ -53,8 +50,8 @@ export default async function handler(req,res){
 
         const session= await getSession({req});
 
-
         const user= await User.findOne({email:session.user.email})
+
         const sortedData= sortTodos(user.todos);
 
         res.status(200).json({status:'success', data:{todos:sortedData}})
@@ -75,8 +72,8 @@ export default async function handler(req,res){
         }
 
         
-
         const result= await User.updateOne({"todos._id":id}, {$set:{"todos.$.status":status}});
+
 
 
         res.status(200).json({status:'success'})

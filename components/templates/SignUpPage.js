@@ -10,7 +10,6 @@ function SignUpPage() {
     const router= useRouter();
 
     const {status} = useSession();
-    console.log(status);
 
 
     useEffect(()=>{
@@ -25,7 +24,6 @@ function SignUpPage() {
             headers:{"Content-Type":"application/json"}
         })
         const data= await res.json()
-        console.log(data);
     if(data.status === 'success') return router.replace('/signin')
     }
 

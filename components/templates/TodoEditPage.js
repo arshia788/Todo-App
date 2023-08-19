@@ -12,7 +12,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function TodoEditPage({id}) {
 
-    console.log(id);
     const [title, setTitle] = useState('');
     const [info, setInfo] = useState('');
     const [status, setStatus] = useState('');
@@ -24,7 +23,6 @@ function TodoEditPage({id}) {
             headers:{"Content-Type":'application/json'}
         });
         const data= await res.json()
-        console.log(data);
         if(data.status === 'success') {
             toast.success(data.message)
         }

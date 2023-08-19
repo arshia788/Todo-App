@@ -41,7 +41,6 @@ export default async function handler(req,res){
         }
 
         const session= await getSession({req})
-        console.log(session);
 
         const {todoId} = req.query;
 
@@ -51,6 +50,7 @@ export default async function handler(req,res){
 
         const user= await User.findOne({email:session.user.email})
         
+
         const check = user.todos.filter(item=>{
 
             const todo= item['_id'] || '';
@@ -58,17 +58,17 @@ export default async function handler(req,res){
 
             if(getObject === todoId) return item
         })
-
-        console.log(check[0]);
+        
+        console.log(check);
         const {title, info, status}= req.body;
 
-        console.log({title, info, status});
 
-        check[0].title= title;
-        check[0].info= info;
-        check[0].status= status;
+        check[0].title= title || check[0].title ;
+        check[0].info= info || check[0].info;
+        check[0].status= status || check[0].status;
         user.save()
 
         res.status(200).json({status:'success', message:"Todo Updated."})
     }
+
 }

@@ -26,7 +26,6 @@ export default async function handler(req,res){
     const hashedPassword= await hashPassword(password)
 
     const newUser= await User.create({email, password:hashedPassword})
-    console.log(newUser);
 
     res.status(201).json({status:'success', message:"user created."})
 }

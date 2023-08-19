@@ -1,7 +1,6 @@
 import React from 'react'
 
 function TodoDetailPage({ data }) {
-    console.log(data);
     return (
         <div className='p-1'>
             <h2 className=' text-xl font-bold'>Todo Detail Page.</h2>

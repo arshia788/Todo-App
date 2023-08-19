@@ -4,9 +4,7 @@ import TodoDetailPage from 'components/templates/TodoDetailPage';
 
 function TodoId() {
 
-    const [data, setData]= useState([]);
-    console.log(data);
-    
+    const [data, setData]= useState([]);    
     const router= useRouter();
     const {query:{todoId}, isReady }= router;
 

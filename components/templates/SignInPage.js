@@ -10,7 +10,6 @@ function SignInPage() {
     const router = useRouter();
 
     const {status} = useSession();
-    console.log(status);
 
 
     useEffect(()=>{
@@ -22,7 +21,6 @@ function SignInPage() {
         const res= await signIn('credentials', {
             email, password, redirect:false
         });
-        console.log(res);
         if(!res.error) return router.push('/')
 
     }

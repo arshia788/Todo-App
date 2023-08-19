@@ -29,7 +29,6 @@ function ProfilePage() {
             headers:{"Content-Type":'application/json'}
         });
         const data= await res.json()
-        console.log(data);
     }
 
     return (
@@ -46,7 +45,8 @@ function ProfilePage() {
 
 
             {
-                data ?  <ProfileData data={data}/>:
+                data ?  <ProfileData data={data}/>
+                :
                 <ProfileForm name={name} lastName={lastName} password={password}
                 setName={setName} setLastName={setLastName} setPassword={setPassword}
                 submitHandler={submitHandler}
