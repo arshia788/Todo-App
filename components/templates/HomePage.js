@@ -20,23 +20,23 @@ function HomePage() {
         <div className='grid grid-cols-12 p-2 gap-3 h-40'>
 
             <div className="col-span-3 bg-white p-1">
-                <div className="bg-orange-500 text-white w-full  text-center">Todo</div>
+                <div className="bg-orange-600 text-white w-full  text-center">Todo</div>
                 <Tasks Data={todos.todo} next='inprogress' fetchTodos={fetchTodos} />
             </div>
 
             <div className="col-span-3 bg-white p-1">
-                <div className="bg-blue-500 text-white w-full  text-center">inprogress</div>
+                <div className="bg-emerald-500 text-white w-full  text-center">inprogress</div>
                 <Tasks Data={todos.inprogress} next='review' back="todo" fetchTodos={fetchTodos} />
             </div>
 
             <div className="col-span-3 bg-white p-1">
-                <div className="bg-yellow-500 text-white w-full  text-center">Review</div>
+                <div className="bg-indigo-600 text-white w-full  text-center">Review</div>
                 <Tasks Data={todos.review} next="done" back="inprogress" fetchTodos={fetchTodos} />
 
             </div>
 
             <div className="col-span-3 bg-white p-1">
-                <div className="bg-pink-500 text-white w-full  text-center">Done</div>
+                <div className="bg-cyan-600  text-white w-full  text-center">Done</div>
                 <Tasks Data={todos.done} back="review" fetchTodos={fetchTodos} />
             </div>
 

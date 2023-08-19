@@ -37,9 +37,9 @@ function Tasks({ Data, next, back, fetchTodos }) {
           </div>
 
           <p className={`${item.status === 'todo' ? `h-1 bg-orange-500 w-1/3 rounded` : null}`}></p>
-          <p className={`${item.status === 'inprogress' ? `h-1 bg-blue-500 w-1/3 rounded` : null}`}></p>
-          <p className={`${item.status === 'review' ? `h-1 bg-yellow-500 w-1/3 rounded` : null}`}></p>
-          <p className={`${item.status === 'done' ? `h-1 bg-pink-500 w-1/3 rounded` : null}`}></p>
+          <p className={`${item.status === 'inprogress' ? `h-1 bg-emerald-500 w-1/3 rounded` : null}`}></p>
+          <p className={`${item.status === 'review' ? `h-1 bg-indigo-600 w-1/3 rounded` : null}`}></p>
+          <p className={`${item.status === 'done' ? `h-1 bg-cyan-600 w-1/3 rounded` : null}`}></p>
 
 
           <div className='flex items-center'>

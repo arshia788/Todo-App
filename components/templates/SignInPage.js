@@ -35,8 +35,8 @@ function SignInPage() {
 
                 <h3 className='text-md mb-3 font-semibold'>SignIn</h3>
 
-                <input onChange={e => setEmail(e.target.value)} className='shadow-md shadow-gray-400 my-2 p-2 rounded' type='text' placeholder='email' value={email} />
-                <input onChange={e => setPassword(e.target.value)} className='shadow-md shadow-gray-400 my-2 p-2 rounded' type='password' placeholder='password...' value={password} />
+                <input onChange={e => setEmail(e.target.value)} className='shadow-md outline-none shadow-gray-400 my-2 p-2 rounded' type='text' placeholder='email' value={email} />
+                <input onChange={e => setPassword(e.target.value)} className='shadow-md outline-none shadow-gray-400 my-2 p-2 rounded' type='password' placeholder='password...' value={password} />
 
                 <button
                     onClick={signInHandler}

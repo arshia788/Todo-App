@@ -34,8 +34,8 @@ function SignUpPage() {
              p-5 flex flex-col text-center my-10'>
 
                 <h3 className='text-md mb-3 font-semibold'>Registrantion From</h3>
-                <input onChange={e=> setEmail(e.target.value)} className='shadow-md shadow-gray-400 my-2 p-2 rounded' type='text' placeholder='email' value={email} />
-                <input onChange={e=> setPassword(e.target.value)} className='shadow-md shadow-gray-400 my-2 p-2 rounded' type='password' placeholder='password...' value={password} />
+                <input onChange={e=> setEmail(e.target.value)} className='shadow-md outline-none shadow-gray-400 my-2 p-2 rounded' type='text' placeholder='email' value={email} />
+                <input onChange={e=> setPassword(e.target.value)} className='shadow-md outline-none shadow-gray-400 my-2 p-2 rounded' type='password' placeholder='password...' value={password} />
                 
                 <button
                 onClick={signUpHandler}
@@ -45,7 +45,7 @@ function SignUpPage() {
                 <div className='flex items-center mt-4 justify-center'>
                     <span className='mr-1'>Have an account?</span>
                     <Link href="/signin" className='text-blue-600 col-span-2'>sign in</Link>
-                </div>
+                </div> outline-none
             </div>
         </div>
     )
