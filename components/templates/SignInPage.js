@@ -7,6 +7,7 @@ function SignInPage() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
     const router = useRouter();
 
     const {status} = useSession();
@@ -21,7 +22,8 @@ function SignInPage() {
         const res= await signIn('credentials', {
             email, password, redirect:false
         });
-        if(!res.error) return router.push('/')
+        console.log(res);
+        if(!res.error)  router.push('/')
 
     }
 
