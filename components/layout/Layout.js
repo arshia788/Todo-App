@@ -19,7 +19,7 @@ function Layout({ children }) {
     return (
         <div>
             <header className='bg-blue-700 pb-16 pt-4 text-white flex justify-between items-center'>
-                <p className="font-semibold text-lg mb-8">Botostart Todo App</p>
+                <p className="font-semibold text-lg mb-8">Next Todo App</p>
 
                 {status === 'authenticated' ?<button 
                 onClick={logOutHandler}
