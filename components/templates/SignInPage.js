@@ -23,7 +23,7 @@ function SignInPage() {
             email, password, redirect:false
         });
         console.log(res);
-        if(!res.error) router.replace('/')
+        if(res.status===200) router.replace('/')
 
     }
 
