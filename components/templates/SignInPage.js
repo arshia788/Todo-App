@@ -45,7 +45,7 @@ function SignInPage() {
 
                 <div className='flex items-center mt-4'>
                     <p className='mr-1'>Create An Account </p>
-                    <Link href="/signup" className='text-blue-600'>sign up</Link>
+                    <Link href="/register" className='text-blue-600'>sign up</Link>
                 </div>
 
             </div>

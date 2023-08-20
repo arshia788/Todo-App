@@ -45,7 +45,7 @@ function SignUpPage() {
                 <div className='flex items-center mt-4 justify-center'>
                     <span className='mr-1'>Have an account?</span>
                     <Link href="/signin" className='text-blue-600 col-span-2'>sign in</Link>
-                </div> outline-none
+                </div> 
             </div>
         </div>
     )

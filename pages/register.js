@@ -2,8 +2,6 @@ import SignUpPage from "components/templates/SignUpPage"
 
 function signUp() {
 
-
-
     return (
         <div>
             <SignUpPage />
